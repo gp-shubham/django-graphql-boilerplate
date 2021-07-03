@@ -11,7 +11,7 @@ SECRET_KEY = env(
     default="VyTJIAyViB8aOFcraOwWoVWC4TJ2LfGWJSLUbgQVlUi8cJVOXHwLD1sIPZUullIt",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "35.244.20.220"]
 
 # CACHES
 # ------------------------------------------------------------------------------
@@ -59,6 +59,30 @@ if env("USE_DOCKER", default="yes") == "yes":
 # ------------------------------------------------------------------------------
 # https://django-extensions.readthedocs.io/en/latest/installation_instructions.html#configuration
 INSTALLED_APPS += ["django_extensions"]  # noqa F405
+# SHELL_PLUS = "ipython"
+
+# SHELL_PLUS_PRINT_SQL = True
+
+NOTEBOOK_ARGUMENTS = [
+    "--ip", "0.0.0.0",
+    "--port", "8888",
+    "--allow-root", "--no-browser",
+]
+
+IPYTHON_ARGUMENTS = [
+    "--ext", "django_extensions.management.notebook_extension",
+    "--debug",
+    
+]
+
+IPYTHON_KERNEL_DISPLAY_NAME = "Django Shell-Plus"
+
+# SHELL_PLUS_POST_IMPORTS = [ # extra things to import in notebook
+#     ("module1.submodule", ("func1", "func2", "class1", "etc")),
+#     ("module2.submodule", ("func1", "func2", "class1", "etc"))
+# ]
+
+env("DJANGO_ALLOW_ASYNC_UNSAFE", default="true" )
 # Celery
 # ------------------------------------------------------------------------------
 

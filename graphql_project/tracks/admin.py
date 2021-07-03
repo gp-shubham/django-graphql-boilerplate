@@ -4,7 +4,7 @@ from graphql_project.tracks.models import Track
 
 
 def get_model_fields(model):
-    return [field.name for field in model._meta.fields if field.name is not 'id']
+    return [field.name for field in model._meta.fields if field.name != 'id']
 
 
 @admin.register(Track)

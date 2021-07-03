@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "/home/shubham/_venv/graphql_project/bin/python",
+    "python.pythonPath": "/home/shubhammaurya_grampower_com/_venv/django_env/bin/python",
     "python.linting.pylintEnabled": true
 }
