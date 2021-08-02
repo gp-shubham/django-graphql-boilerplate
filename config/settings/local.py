@@ -83,6 +83,13 @@ IPYTHON_KERNEL_DISPLAY_NAME = "Django Shell-Plus"
 # ]
 
 env("DJANGO_ALLOW_ASYNC_UNSAFE", default="true" )
+
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGINS_WHITELIST = (
+#     "localhost:3000",
+#     "35.244.20.220:3000"
+# )
+
 # Celery
 # ------------------------------------------------------------------------------
 

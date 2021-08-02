@@ -7,6 +7,7 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 from rest_framework.authtoken.views import obtain_auth_token
 from graphene_django.views import GraphQLView
+from django.views.decorators.csrf import csrf_exempt
 
 
 urlpatterns = [
@@ -27,7 +28,7 @@ if settings.DEBUG:
 
 # GRAPHQL URLS
 urlpatterns += [
-    path("graphql/", GraphQLView.as_view(graphiql=True)),
+    path("graphql/", csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]
 
 # API URLS
